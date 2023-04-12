@@ -186,6 +186,10 @@ var SENSOR_STATES = Object.freeze({
   SENSOR_STOP: 1,
   MACHINE_START: 2,
   MACHINE_STOP: 3,
+  SENSOR_STOP_WITH_ERASE: 4,
+  SENSOR_STOP_NO_VIB: 5,
+  SENSOR_START_NO_VIB: 6,
+  SENSOR_LEARN_KEEPALIVE: 7,
 });
 var LIST_MPU_SENSOR_SIGNIFICATION_VALUES = Object.freeze([constants.LEARNING.SIGNIFICATION_VALUE.MPU6500, constants.REPORT.SIGNIFICATION_VALUE.MPU6500, constants.ALARM.SIGNIFICATION_VALUE.MPU6500, constants.STARTSTOP.SIGNIFICATION_VALUE.MPU6500]);
 var LIST_KX_SENSOR_SIGNIFICATION_VALUES = Object.freeze([constants.LEARNING.SIGNIFICATION_VALUE.KX, constants.REPORT.SIGNIFICATION_VALUE.KX, constants.ALARM.SIGNIFICATION_VALUE.KX, constants.STARTSTOP.SIGNIFICATION_VALUE.KX]);
@@ -529,6 +533,26 @@ function _findStateInPayload(value) {
 
     case 101: {
       state = SENSOR_STATES.SENSOR_STOP;
+      break;
+    }
+
+    case 104: {
+      state = SENSOR_STATES.SENSOR_START_NO_VIB;
+      break;
+    }
+
+    case 105: {
+      state = SENSOR_STATES.SENSOR_STOP_NO_VIB;
+      break;
+    }
+
+    case 106: {
+      state = SENSOR_STATES.SENSOR_LEARN_KEEPALIVE;
+      break;
+    }
+
+    case 110: {
+      state = SENSOR_STATES.SENSOR_STOP_WITH_ERASE;
       break;
     }
 
