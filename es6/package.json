@@ -1,6 +1,6 @@
 {
   "name": "bob-payload-processor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "BOB payload decoder",
   "main": "app.js",
   "scripts": {
